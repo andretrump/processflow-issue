@@ -1,0 +1,13 @@
+ID;lane_ID;title;children
+1;0;Sales Order 2;[10,11,12]
+10;1;Outbound Delivery 40;[20,21]
+11;1;Outbound Delivery 43;[20]
+12;1;Outbound Delivery 45;[20]
+20;2;Invoice 9;[30,31]
+21;2;Invoice planned;[]
+30;3;Accounting Document 5;[51]
+31;3;Accounting Document 7;[41]
+41;4;Payment Document 75;[51]
+51;5;Acceptance Letter 14;[61]
+61;6;Credit Voucher 67;[71]
+71;7;Credit Return 77;[]
