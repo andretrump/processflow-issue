@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="TestService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Nodes" EntityType="TestService.Nodes">
+                    <NavigationPropertyBinding Path="lane" Target="Lanes"/>
+                </EntitySet>
+                <EntitySet Name="Lanes" EntityType="TestService.Lanes"/>
+            </EntityContainer>
+            <EntityType Name="Nodes">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="title" Type="Edm.String"/>
+                <NavigationProperty Name="lane" Type="TestService.Lanes">
+                    <ReferentialConstraint Property="lane_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="lane_ID" Type="Edm.Int32"/>
+                <Property Name="children" Type="Collection(Edm.Int32)" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="Lanes">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="label" Type="Edm.String"/>
+                <Property Name="position" Type="Edm.Int32"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

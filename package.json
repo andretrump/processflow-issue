@@ -10,9 +10,11 @@
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1"
+    "@cap-js/sqlite": "^1",
+    "@sap/ux-specification": "^1.120.4"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-processflow": "cds watch --open processflow/webapp/index.html?sap-ui-xx-viewCache=false"
   }
 }

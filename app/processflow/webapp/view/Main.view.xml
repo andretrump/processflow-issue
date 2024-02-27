@@ -1,0 +1,41 @@
+<mvc:View controllerName="processflow.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns="sap.suite.ui.commons">
+    <m:Page id="page"
+        title="Process Flow">
+        <m:content>
+            <ProcessFlow id="processflow1"
+                scrollable="false"
+                foldedCorners="true"
+                nodePress="onNodePress"
+                nodes="{/Nodes}"
+                lanes="{/Lanes}">
+                <nodes>
+                    <ProcessFlowNode id="processflow1Node"
+                        nodeId="{id}"
+                        title="{title}"
+                        titleAbbreviation="{titleAbbreviation}"
+                        state="{state}"
+					    stateText="{stateText}"
+					    texts="{
+                            path: 'texts',
+                            targetType: 'any',
+                            formatter: '.formatTexts'
+                        }"
+                        children="{
+                            path: 'children',
+                            targetType: 'any',
+                            formatter: '.formatChildren'
+                        }"/>
+                </nodes>
+                <lanes>
+                    <ProcessFlowLaneHeader id="processflow1Lane"
+                        laneId="{id}"
+                        text="{label}"
+                        position="{position}" />
+                </lanes>
+            </ProcessFlow>
+        </m:content>
+    </m:Page>
+</mvc:View>
